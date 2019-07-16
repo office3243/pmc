@@ -29,8 +29,7 @@ def check_unique_otps():
         return otp_1, otp_2
 
 
-# class TransactionAddView(LoginRequiredMixin, CreateView):
-class TransactionAddView(CreateView):
+class TransactionAddView(LoginRequiredMixin, CreateView):
 
     form_class = TransactionAddForm
     template_name = 'transactions/add.html'
@@ -102,12 +101,6 @@ class TransactionDetailView(LoginRequiredMixin, DetailView):
         else:
             raise Http404("No Transaction Found")
 
-#
-# class TransactionDeleteView(LoginRequiredMixin, View):
-#
-#     def get(self):
-#         return redirect("portal:home")
-
 
 class TransactionDeleteView(LoginRequiredMixin, DeleteView):
     template_name = "transactions/delete.html"
@@ -164,8 +157,11 @@ def get_print(request, otp_1, otp_2, station_code):
     try:
         transaction = Transaction.objects.get(otp_1=otp_1, otp_2=otp_2)
         file_printed = transaction.is_printed
-        python_dict = {'otp_found': True, 'file_printed': file_printed, 'color_model': transaction.color_model,
-                       'amount': transaction.amount, 'payment_mode': transaction.payment_mode, 'file_path': transaction.get_file_url}
+        python_dict = {'otp_found': True, 'file_permitted': transaction.is_permitted, 'file_printed': file_printed,
+                       'copies': transaction.copies, 'pages': transaction.file.pages,
+                       'color_model': transaction.color_model,
+                       'amount': transaction.amount, 'payment_mode': transaction.payment_mode,
+                       'file_path': transaction.get_file_url}
         transaction.is_printed = True
         transaction.printed_station = station
         transaction.printed_on = timezone.now()

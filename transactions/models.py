@@ -69,6 +69,10 @@ class Transaction(models.Model):
         return str(self.user)
 
     @property
+    def get_otps(self):
+        return "{} - {}".format(self.otp_1, self.otp_2)
+
+    @property
     def get_absolute_url(self):
         return reverse_lazy("transactions:detail", kwargs={"uuid": self.uuid})
 
@@ -129,7 +133,7 @@ post_delete.connect(delete_file, sender=Transaction)
 class File(models.Model):
 
     ALLOWED_FILE_TYPES = ("png", "jpg", "jpeg", "pdf")
-    FILE_TYPE_CHOICES = (('jpg', 'JPG'), ('png', 'PNG'), ('pdf', 'PDF'), ('txt', 'TXT'))
+    FILE_TYPE_CHOICES = (('jpg', 'JPG'), ('png', 'PNG'), ('pdf', 'PDF'), ('txt', 'TXT'), ("jpeg", "JPEG"))
     input_files_path = "transactions/files/input_files/"
     converted_files_path = "transactions/files/converted_files/"
 
@@ -174,6 +178,8 @@ class File(models.Model):
             return converters.png_converter(self)
         elif self.file_type == "jpg":
             return converters.jpg_converter(self)
+        elif self.file_type == "jpeg":
+            return converters.jpeg_converter(self)
         else:
             pass
 

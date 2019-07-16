@@ -6,7 +6,7 @@ SECRET_KEY = 'mvazb9#yw1*vro%mbz-dm*72i-=a0l$ppgvqi)lyaq2x&*03z9'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["printmycopy.com", "www.printmycopy.com", "209.124.64.50"]
+ALLOWED_HOSTS = ["printmycopy.com", "www.printmycopy.com", "209.124.64.50", "*"]
 
 
 INSTALLED_APPS = [
@@ -116,13 +116,13 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
-#STATIC_ROOT = os.path.join(BASE_DIR, "static/")
-STATIC_ROOT = "/var/www/static-root/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+# STATIC_ROOT = "/var/www/static-root/"
 
 MEDIA_URL = '/media/'
 
-#MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
-MEDIA_ROOT = "/var/www/media-root/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+# MEDIA_ROOT = "/var/www/media-root/"
 
 
 from django.contrib import messages
@@ -146,12 +146,12 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_URL = reverse_lazy('accounts:login')
 LOGIN_REDIRECT_URL = reverse_lazy('portal:home')
+#
+# SITE_DOMAIN = "http://www.printmycopy.com/"
+# SITE_DOMAIN_NAKED = "http://www.printmycopy.com"
 
-SITE_DOMAIN = "http://www.printmycopy.com/"
-SITE_DOMAIN_NAKED = "http://www.printmycopy.com"
-
-#SITE_DOMAIN = "http://127.0.0.1:8000/"
-#SITE_DOMAIN_NAKED = "http://127.0.0.1:8000"
+SITE_DOMAIN = "http://127.0.0.1:8000/"
+SITE_DOMAIN_NAKED = "http://127.0.0.1:8000"
 
 
 # Payments App

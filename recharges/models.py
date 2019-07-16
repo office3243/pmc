@@ -111,15 +111,24 @@ class Recharge(models.Model):
 
     @property
     def get_firstname(self):
-        return self.get_user.first_name
+        return self.get_user.first_name if self.get_user.first_name else self.get_phone
 
     @property
     def get_email(self):
-        return self.get_user.email
+        return self.get_user.email if self.get_user.email else "blank@blank.com"
 
     @property
     def get_phone(self):
         return self.get_user.phone
+
+    @property
+    def get_user_info_dict(self):
+        return {
+                'first_name': self.get_firstname,
+                "email": self.get_email,
+                "phone": self.get_phone,
+            }
+
 
     @property
     def get_productinfo(self):

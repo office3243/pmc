@@ -8,26 +8,29 @@
         <div class="row tz-upload-row">
             <div class="col-md tz-label-btmmargin"><i class="fas fa-file-upload tz-icnrightmargin"></i>Upload your File :</div>
             <div class="col-md">
-                <label class="form-control"  style="padding-right:0; padding-left: 0;">
-                    <span class="tz-mainlblfile">
-                        <span class="float-left tz-uploadspan" id="change">Upload</span>
-                        <i class="fas fa-paperclip tz-icnrightmargin" style="margin-left: 10px;"></i>
-                        <span id="file-input-msg">Choose File</span>
-                        <span id="file-input-msg-pages" style="display:none;"></span>
+                <label class="form-control"  style="padding: 0;">
+                    <span class="tz-mainlblfile tz-word-overflow">
+                        <span class="tz-uploadspan" id="change">Upload</span>
+                        <span class="tz-word-overflow">
+                            <i class="fas fa-paperclip tz-icnrightmargin" style="margin-left: 10px;"></i>
+                            <span id="file-input-msg">Choose File</span>
+                            <span id="file-input-msg-pages" style="display:none;"></span>
+                        </span>
                     </span>
                     {% render_field form.input_file id="file" style="display: none;" required="required" onchange="fileChange();" blank="false" %}
                     <button id="preview-btn" onclick="preview()" type="button" class="tz-preview-btn" data-toggle="modal" data-target="#previewmodal">Preview</button>
                 </label>
             </div>
         </div>
-        <div style="display: none" id="processMessage">
-            <br><br>
-            <h4 class="text-default text-center font-weight-bold">Please Wait File Uploading ...</h4>
-        </div>
+         <div id="progressContainer" style="display: none;margin-top:50px;">
+             <h4 class="text-center tz-progressheader">Please Wait File Uploading ...</h4>
+                  <progress class="tz-progress" id="progressBar" value="0" max="100" style="width:100%;"></progress>
+                <h6  class="tz-progressextra" id="status"></h6>
+            </div>
         <br>
         <span style="display: none" class="text-center alert alert-danger btn-block" id="formErrorMessage"></span>
     </form>
-    <div class="container" id="transactionFormDiv" style="display: none;">
+    <div  id="transactionFormDiv" style="display: none;">
         <form id="transactionForm" action="" method="post">
             {% csrf_token %}
             <div class="row tz-upload-row" id="pagesblock">
@@ -44,33 +47,35 @@
             </div>
             <div class="row tz-upload-row">
                 <div class="col-md tz-label-btmmargin"><i class="fas fa-palette tz-icnrightmargin"></i>Color Mode :</div>
-                <div class="col-md tz-radio-marginleft">
-                    <div class=" custom-control custom-radio custom-control-inline">
+                <div class="col-md text-center">
+                    <div class=" custom-control-inline">
                         <input value="BW" type="radio" class="custom-control-input" id="black-white" name="color_model" required  checked onchange="calculateForm();">
-                        <label class="custom-control-label" for="black-white">Black & White</label>
+                        <label class="tz-radio-label tz-radio-label-active" id="black-white-label" onclick="colorModeClassChange(this.id)" for="black-white">Black & White</label>
                     </div>
-                    <div class="custom-control custom-radio custom-control-inline">
+                    <div class=" custom-control-inline">
                         <input value="CL" type="radio" class="custom-control-input" id="color" name="color_model" onchange="calculateForm();">
-                        <label class="custom-control-label" for="color">Colour</label>
+                        <label class="tz-radio-label" id="color-label" onclick="colorModeClassChange(this.id)" for="color">Colour</label>
                     </div>
                 </div>
             </div>
             <div class="row tz-upload-row">
                 <div class="col-md tz-label-btmmargin"><i class="fas fa-copy tz-icnrightmargin"></i>Copies :</div>
-                <div class="col-md">
-                    {% render_field transaction_form.copies class="form-control" id="copies" value=1 onchange="calculateForm();" %}
+                <div class="col-md text-center">
+                    <button type="button" class="btn waves-effect waves-light tz-leftbtn tz-copiesbtn" onclick="copiesChange('-')"><i class="fas fa-minus"></i></button>
+                    {% render_field transaction_form.copies class="form-control" id="copies" value=1 onchange="calculateForm();" style="width:60px;display:inline-block;"%}
+                    <button type="button" class="btn waves-effect waves-light tz-rightbtn tz-copiesbtn" onclick="copiesChange('+')"><i class="fas fa-plus"></i></button>
                 </div>
             </div>
             <div class="row tz-upload-row">
                 <div class="col-md tz-label-btmmargin"><i class="fas fa-cash-register tz-icnrightmargin"></i>Payment Mode :</div>
-                <div class="col-md tz-radio-marginleft">
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input value="AC" type="radio" class="custom-control-input" id="wallet" name="payment_mode" required>
-                        <label class="custom-control-label" for="wallet">Pay with Wallet</label>
+                <div class="col-md text-center">
+                     <div class=" custom-control-inline">
+                        <input value="CO" type="radio" class="custom-control-input" id="coin" name="payment_mode" checked required>
+                        <label class=" tz-radio-label tz-radio-label-active" id="coin-label" for="coin" onclick="paymentClassChange(this.id)">Pay with Coin</label>
                     </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input value="CO" type="radio" class="custom-control-input" id="coin" name="payment_mode">
-                        <label class="custom-control-label" for="coin">Pay with Coin</label>
+                    <div class=" custom-control-inline">
+                        <input value="AC" type="radio" class="custom-control-input" id="wallet" name="payment_mode" >
+                        <label class=" tz-radio-label" id="wallet-label"for="wallet" onclick="paymentClassChange(this.id)">Pay with Wallet</label>
                     </div>
                 </div>
             </div>
@@ -103,4 +108,7 @@
         </div>
     </div>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var userBalance = {{ user.wallet.balance }};
+    </script>
 {% endblock %}

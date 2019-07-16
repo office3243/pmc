@@ -16,7 +16,7 @@ urlpatterns = [
     url(r'^delete/(?P<uuid>[0-9a-f-]+)/$', views.TransactionDeleteView.as_view(), name='delete'),
     url(r'^hide/(?P<uuid>[0-9a-f-]+)/$', views.TransactionHideView.as_view(), name='hide'),
 
-    url(r'^getprint/(?P<otp_1>[0-9]+)/(?P<otp_2>[0-9]+)/(?P<station_code>.+)$', views.get_print, name='get_print'),
+    url(r'^getprint/(?P<otp_1>[0-9]+)/(?P<otp_2>[0-9]+)/(?P<station_code>[0-9a-z-]+)/$', views.get_print, name='get_print'),
 
     url(r'^file/add/$', views.file_add, name="file_add")
 

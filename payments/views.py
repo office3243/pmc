@@ -31,7 +31,7 @@ def create_payment(request, recharge):
                                                product_info=payment_data.get('productinfo'),
                                                recharge=recharge)
     payment_data.update({"txnid": txnid})
-    payment_data.update(payu_details)
+    payment_data.update(recharge.get_user_info_dict)
     payu_data = payu.initate_transaction(payment_data)
     return render(request, 'payments/checkout.html', {"posted": payu_data})
 

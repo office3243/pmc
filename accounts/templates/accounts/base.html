@@ -1,8 +1,6 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% load widget_tweaks %}
-
-
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
@@ -16,12 +14,10 @@
         <link href="{% static "css/mdb.min.css" %}" rel="stylesheet">
         <!-- Your custom styles  -->
         <link href="{% static "css/main.css" %}" rel="stylesheet">
-
+        <link rel="icon" href="{% static "images/favicon.jpg" %}" type="image/jpg">
         {% block full_title %}<title>{% block title %}{% endblock %} - PrintMyCopy</title>{% endblock %}
-
     </head>
     <body >
-
         {% if messages %}
             {% for message in messages %}
                 <div class="alert mb-0 alert-{{ message.tags }} alert-dismissible fade show" role="alert">
@@ -32,36 +28,18 @@
                 </div>
             {% endfor %}
         {% endif %}
-
-{#        <div class="loader">#}
-{#            <img src="{% static "images/Spinner-1s-200px.gif" %}" alt="Loading ...">#}
-{#        </div>#}
-
         {% block body %}
         {% endblock %}
-
-        <!-- SCRIPTS -->
-        <!-- JQuery -->
         <script type="text/javascript" src="{% static "js/jquery-3.4.1.min.js" %}"></script>
-        <!-- Bootstrap tooltips -->
         <script type="text/javascript" src="{% static "js/popper.min.js" %}"></script>
-        <!-- Bootstrap core JavaScript -->
         <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
-        <!-- MDB core JavaScript -->
         <script type="text/javascript" src="{% static "js/mdb.min.js" %}"></script>
-{#        Bootstrap Form Helper#}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.min.js"></script>
-         <!-- My Login JavaScript -->
         <script type="text/javascript" src="{% static "js/main.js" %}"></script>
     </body>
-     <!-- Footer -->
      <footer class="page-footer font-small " id="footer" style="display: none">
-
-        <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2019 Copyright:
           <a href="https://mdbootstrap.com/education/bootstrap/"> EwayPrint.com</a>
         </div>
-        <!-- Copyright -->
-
       </footer>
 </html>

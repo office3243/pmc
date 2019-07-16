@@ -28,6 +28,22 @@ def jpg_converter(file):
         return False
 
 
+def jpeg_converter(file):
+    try:
+        pdf_path_raw = file.get_pdf_path_raw
+        pdf_path = file.get_pdf_path
+        pdf_bytes = img2pdf.convert(file.input_file.path)
+        pdf_file = open(pdf_path_raw, "wb")
+        pdf_file.write(pdf_bytes)
+        pdf_file.close()
+        file.converted_file = pdf_path
+        file.save()
+        return True
+    except Exception as e:
+        return False
+
+
+
 def png_converter(file):
     try:
         png_path = file.input_file.path

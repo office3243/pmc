@@ -14,6 +14,7 @@ from stations.models import Station
 from django.utils import timezone
 from stations.models import Station, StationClass
 import json
+from django.contrib.auth.decorators import login_required
 
 
 def generate_four_digit_otp():
@@ -171,6 +172,7 @@ def get_print(request, otp_1, otp_2, station_code):
         return JsonResponse({'otp_found': False})
 
 
+@login_required
 def file_add(request):
 
     transaction_form = TransactionAddForm()

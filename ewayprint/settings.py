@@ -150,9 +150,12 @@ LOGIN_REDIRECT_URL = reverse_lazy('portal:home')
 # SITE_DOMAIN = "http://www.printmycopy.com/"
 # SITE_DOMAIN_NAKED = "http://www.printmycopy.com"
 
+
 SITE_DOMAIN = "http://127.0.0.1:8000/"
 SITE_DOMAIN_NAKED = "http://127.0.0.1:8000"
 
+# SITE_DOMAIN = "http://192.168.0.111:8080/"
+# SITE_DOMAIN_NAKED = "http://192.168.0.111:8080"
 
 # Payments App
 PAYU_MERCHANT_KEY = "mdLYzH6I"

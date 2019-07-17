@@ -7,8 +7,17 @@
               </span>
            </div>
           <ul class="nav tz-ul col-md-6" role="tablist">
-            <li class="nav-items tz-li"><a class="nav-link waves-light tz-linkbtn" id="upload-tab" href="{% url "transactions:file_add" %}" ><i class="fas fa-upload"></i></a></li>
-            <li class="nav-items tz-li"><a class="nav-link waves-light tz-linkbtn" id="transaction-tab" href="{% url "transactions:list" %}"><i class="fas fa-history"></i></a></li>
+
+            <li class="nav-items tz-li">
+                <a class="nav-link waves-light tz-linkbtn" id="upload-tab" href="{% url "transactions:file_add" %}" >
+                    <i class="fas fa-upload"></i>
+                </a>
+            </li>
+            <li class="nav-items tz-li">
+                <a class="nav-link waves-light tz-linkbtn" id="transaction-tab" href="{% url "transactions:list" %}">
+                    <i class="fas fa-history"></i>
+                </a>
+            </li>
             <li class="nav-items tz-li"><a class="nav-link waves-light tz-linkbtn" id="account-tab" href="{% url "wallets:view" %}"><i class="fas fa-wallet"></i></a></li>
             <li class="nav-items tz-li dropdown">
                 <a class="nav-link waves-light tz-linkbtn dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars"></i></a>
@@ -22,4 +31,6 @@
           </ul>
         </div>
     </div>
+
+
 

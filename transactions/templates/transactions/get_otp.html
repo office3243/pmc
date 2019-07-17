@@ -8,5 +8,9 @@
         <hr>
         <h4 class="text-black-50 font-weight-bold">Your otp 1 is : {{ otp_1 }}</h4>
         <h4 class="text-black-50 font-weight-bold">Your otp 2 is : {{ otp_2 }}</h4>
+        <hr>
+        <a href="{% url "transactions:file_add" %}"><button class="btn btn-default">Add another file to print<i class="fa fa-plus"></i> </button></a>
+
     </div>
+
 {% endblock %}

@@ -14,6 +14,10 @@
         <link href="{% static "css/main.css" %}" rel="stylesheet">
         <link rel="icon" href="{% static "images/favicon.jpg" %}" type="image/jpg">
         {% block extrahead %}{% endblock %}
+
+
+
+
     </head>
     <body>
         {% if messages %}
@@ -38,6 +42,23 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.2/pdf.min.js"></script>
 {#        <script type="text/js" src="{% static "js/pdfjs.js" %}"></script>#}
         <script type="text/javascript" src="{% static "js/main.js" %}"></script>
+
+            <script type="text/javascript">
+            var current_url_path = "{{ request.path }}";
+            if (current_url_path === '{% url "transactions:file_add" %}'){
+                $("#upload-tab").addClass("tz-currentlink");
+            }
+            else if (current_url_path === '{% url "transactions:list" %}'){
+                $("#transaction-tab").addClass("tz-currentlink");
+            }
+            else if (current_url_path === '{% url "wallets:view" %}'){
+                $("#account-tab").addClass("tz-currentlink");
+            }
+
+        </script>
+
+
+
     </body>
 </html>
 

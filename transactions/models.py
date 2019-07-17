@@ -13,13 +13,6 @@ from . import converters
 import os
 from PyPDF2 import PdfFileReader
 
-
-# SITE_DOMAIN = "http://www.printmycopy.com/"
-# SITE_DOMAIN_NAKED = "http://www.printmycopy.com"
-
-# SITE_DOMAIN = "http://127.0.0.1:8000/"
-# SITE_DOMAIN_NAKED = "http://127.0.0.1:8000"
-
 SITE_DOMAIN = settings.SITE_DOMAIN
 SITE_DOMAIN_NAKED = settings.SITE_DOMAIN_NAKED
 

@@ -1,26 +1,14 @@
 {% extends 'portal/base.html' %}
 {% load crispy_forms_tags %}
-
 {% block title %}Add transactions{% endblock %}
-
 {% block body %}
-
     <h2>{{ transaction.get_display_text }}</h2>
-
-
     <div class="container col-lg-4">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-
-
             {{ form|crispy }}
-
-
             <input class="btn btn-info" value="Submit" type="submit"/>
         </form>
-
         <p>Create new account ! <a href="{% url 'portal:home' %}">Home</a></p>
-
     </div>
-
 {% endblock %}

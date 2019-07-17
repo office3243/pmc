@@ -2,6 +2,10 @@ from django.contrib import admin
 from .models import Transaction, File
 
 
+admin.site.site_header = "Print My Copy | Administration"
+admin.site.site_title = "Print My Copy"
+
+
 class FileAdmin(admin.ModelAdmin):
     list_display = ("__str__", "input_file", "converted_file")
     list_filter = ("file_type", "has_error")

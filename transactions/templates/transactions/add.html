@@ -3,33 +3,18 @@
 {% block title %}Add Transaction{% endblock %}
 {% block body %}
     <div class="container jumbotron text-center bg-transparent">
-
         <h2>Upload your file</h2>
-
-
             <div class="container col-lg-4">
-
                 {% if form.errors %}
                         {{ form.errors }}
                 {% endif %}
-
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-
                     {{ form|crispy }}
-
                     <br><br>
-
                     <input class="btn btn-info" value="Get Otp" type="submit"/>
-
                 </form>
-
                 <p>Create new account ! <a href="{% url 'portal:home' %}">Home</a></p>
-
             </div>
-
-
     </div>
-
-
 {% endblock %}

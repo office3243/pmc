@@ -1,14 +1,10 @@
 {% extends 'accounts/base.html' %}
 {% load crispy_forms_tags %}
-
 {% block title %}Login{% endblock %}
-
 {% block body %}
-
         <div class="tz-login-header">
             <span class="tz-login-header-name">PrintMyCopy</span>
         </div>
-
         <div id="main-content">
             <ul class="nav tz-login-ul" id="tz-tab" role="tablist">
                 <li class="nav-item tz-login-li">
@@ -25,20 +21,7 @@
             <div class="tab-content container mt-3" id="tz-tab-content">
                 <div class="tab-pane fade active show" id="login-section" role="tabpanel" aria-labelledby="login-tab">
                     <form action="{% url "accounts:login" %}" method="post">
-
-
-{#                            {% for field in form %}#}
-{#                                {{ field }}#}
-{#                             <div>#}
-{#                               {% for error in field.errors %}#}
-{#                                     <p style="color: red">{{ error }}</p>#}
-{#                               {% endfor %}#}
-{#                             </div>#}
-{#                           {% endfor %}#}
-
-
                         {% csrf_token %}
-
                         <div class="form-group">
                             <label class="tz-lbl-color"  for="loginmobileno">Mobile No</label>
                             <input name="username" class="form-control tz-inp input-medium bfh-phone" data-format="+91dddddddddd" id="loginmobileno" type="text" required >
@@ -51,13 +34,9 @@
                     </form>
                     <div><button class="tz-linkbtn tz-linkbtncolorgrn" id="forget-tab" onclick=" forgetPassword(this)" >Recover Password ?</button></div>
                 </div>
-
-
                 <div class="tab-pane fade" id="sign-up-section" role="tabpanel" aria-labelledby="sign-up-tab">
                     <form action="{% url "accounts:register" %}" method="POST">
-
                         {% csrf_token %}
-
                         <div class="form-group">
                             <label class="tz-lbl-color" for="regmobileno">Mobile No</label>
                             <input name="phone" class="form-control tz-inp input-medium bfh-phone" data-format="+91dddddddddd" type="text" id="regmobileno" required>
@@ -79,9 +58,7 @@
                 </div>
                 <div  id="forget-section" style="display: none;">
                     <form action="{% url "accounts:password_reset" %}" method="post">
-
                         {% csrf_token %}
-
                         <div class="form-group">
                             <label class="tz-lbl-color"  for="forget-mobileno">Mobile No</label>
                             <input name="phone" class="form-control tz-inp input-medium bfh-phone" data-format="+91dddddddddd" id="forget-mobileno" type="text" required >
@@ -91,5 +68,4 @@
                 </div>
             </div>
         </div>
-
 {% endblock %}

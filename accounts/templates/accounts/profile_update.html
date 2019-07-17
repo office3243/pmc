@@ -1,26 +1,13 @@
 {% extends 'portal/base.html' %}
 {% load crispy_forms_tags %}
-
 {% block title %}Home{% endblock %}
-
 {% block body %}
-
     <div class="text-center container">
-
         <h2>{{ user.get_display_text }}</h2>
-
         <form method="post">
-
             {% csrf_token %}
-
             {{ form|crispy }}
-
             <input type="submit" value="Update" class="btn tz-getotpbtn">
-
         </form>
-
-
     </div>
-
-
 {% endblock %}

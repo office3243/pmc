@@ -1,24 +1,16 @@
 {% extends 'accounts/base.html' %}
 {% load crispy_forms_tags %}
-
 {% block title %}OTP Verify{% endblock %}
-
 {% block body %}
-
-
     <div class="container col-lg-4">
-
         <form method="POST">
             {{form.non_field_errors}}
             {% csrf_token %}
             {{ form|crispy }}
             <button type="submit">Verify</button>
         </form>
-
     <a href="{% url "accounts:otp_resend" %}">Resend OTP</a>
-
     </div>
-
 {% endblock %}
 
 

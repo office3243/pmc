@@ -1,14 +1,10 @@
 {% extends 'accounts/base.html' %}
 {% load crispy_forms_tags %}
-
 {% block title %}Register{% endblock %}
-
 {% block body %}
-
         <div class="tz-login-header">
             <span class="tz-login-header-name">PrintMyCopy</span>
         </div>
-
         <div id="main-content">
             <ul class="nav tz-login-ul" >
                 <li class="nav-item tz-login-li">
@@ -20,22 +16,13 @@
             <div class="tab-content container mt-3" id="tz-tab-content">
                 <div id="sign-up-section">
                     <form method="POST">
-
                         {% csrf_token %}
-
                         {{ form|crispy }}
-
                         <button class="btn btn-info btn-block my-4 tz-btn-submit" type="submit">Create Accont</button>
                     </form>
-
-
                     <div class="text-center"><a class="text-default" href="{% url "accounts:login" %}">Login</a></div>
                     <div class="text-center"><a class="text-danger" href="{% url "accounts:password_reset" %}">Forget Password ?</a></div>
-
-
                 </div>
-
             </div>
         </div>
-
 {% endblock %}

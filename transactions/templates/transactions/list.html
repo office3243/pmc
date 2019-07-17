@@ -25,10 +25,15 @@
                             <tr {% if transaction.is_printed %}class="printed" style="display: none;" {% else %}class="non-printed"{% endif %}">
                                 <th class="text-center" scope="row">{{ forloop.counter }}</th>
                                     <td>
-                                        <div class="text-center">{{ transaction.otp_1 }}/{{ transaction.otp_2 }}</div>
+                                        <div class="text-center">{{ transaction.otp_1 }}/{{ transaction.otp_2 }}
+                                            <b>({% if transaction.color_model == "CL" %}Color{% else %}Black&White{% endif %})</b>
+                                        </div>
                                         <div class="text-center">{{ transaction.file.get_pure_name }}</div>
                                     </td>
-                                    <td class="text-center"><i class="fas fa-money-check" style="margin-right: 5px;"></i>{{ transaction.amount }}</td>
+                                    <td class="text-center">
+                                        <i class="fas {% if transaction.payment_mode == "AC" %}fa-money-check{% else %}fa-coins{% endif %}" style="margin-right: 5px;"></i>
+                                        {{ transaction.amount }}
+                                    </td>
                                     <td class="text-center">
                                         {% if transaction.is_printed %}
                                             <form method="post" action="{{ transaction.get_hide_url }}">

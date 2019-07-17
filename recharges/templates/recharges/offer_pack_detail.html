@@ -1,27 +1,16 @@
 {% extends "portal/base.html" %}
-
 {% block title %}{{ recharge.get_display_text }}{% endblock %}
-
 {% block body %}
     <div class="container jumbotron text-center">
         <h3>{{ offer_pack.name }}</h3>
         <br>
         <h4>{{ offer_pack.headline }}</h4>
-
         <ul class="list-group">
             <li class="list-group-item">Price : {{ offer_pack.price }}</li>
             <li class="list-group-item">Balance : {{ offer_pack.balance }}</li>
         </ul>
-
         <p>{{ offer_pack.details }}</p>
-
-
         <a href="{{ offer_pack.get_make_recharge_url }}" class="btn blue-gradient">Recharge</a>
         <p>by clicking Recharge button you will be redirected to payumoney payment integration.</p>
-
-
     </div>
-
-
-
 {% endblock %}

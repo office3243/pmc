@@ -1,19 +1,12 @@
     {% load static %}
-
     <div>
-
         <div class="tz-topmenu">
-
-           <!-- Header Tag -->
            <div class="tz-header col-md-6">
               <span class="tz-header-name">
                 PrintMyCopy
               </span>
            </div>
-
-          <!-- NavBar -->
           <ul class="nav tz-ul col-md-6" role="tablist">
-{#            <li class="nav-items tz-li"><a class="nav-link waves-light active show tz-linkbtn tz-currentlink" id="home-tab" href="{% url "portal:home" %}"><i class="fas fa-home"></i></a></li>#}
             <li class="nav-items tz-li"><a class="nav-link waves-light tz-linkbtn" id="upload-tab" href="{% url "transactions:file_add" %}" ><i class="fas fa-upload"></i></a></li>
             <li class="nav-items tz-li"><a class="nav-link waves-light tz-linkbtn" id="transaction-tab" href="{% url "transactions:list" %}"><i class="fas fa-history"></i></a></li>
             <li class="nav-items tz-li"><a class="nav-link waves-light tz-linkbtn" id="account-tab" href="{% url "wallets:view" %}"><i class="fas fa-wallet"></i></a></li>
@@ -28,6 +21,5 @@
             </li>
           </ul>
         </div>
-
     </div>
 

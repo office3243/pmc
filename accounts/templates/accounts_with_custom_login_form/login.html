@@ -1,14 +1,10 @@
 {% extends 'accounts/base.html' %}
 {% load crispy_forms_tags %}
-
 {% block title %}Login{% endblock %}
-
 {% block body %}
-
         <div class="tz-login-header">
             <span class="tz-login-header-name">PrintMyCopy</span>
         </div>
-
         <div id="main-content">
             <ul class="nav tz-login-ul" >
                 <li class="nav-item tz-login-li">
@@ -20,27 +16,20 @@
             <div class="tab-content container mt-3" id="tz-tab-content">
                 <div id="login-section"></div>
                     <form action="{% url "accounts:login" %}" method="post">
-
                         {% csrf_token %}
-
                         <div class="form-group">
                             <label class="tz-lbl-color"  for="loginmobileno">Mobile No</label>
                             <input name="username" class="form-control tz-inp input-medium bfh-phone" data-format="+91dddddddddd" id="loginmobileno" type="text" required >
                         </div>
-
                         <div class="form-group">
                             <label class="tz-lbl-color" for="loginpassword">Password</label>
                             <input name="password" class="form-control tz-inp" placeholder="Enter Your Password" id="loginpassword" type="password" required>
                         </div>
-
-
                         <button class="btn btn-info btn-block my-4 tz-btn-submit" type="submit">Login</button>
                     </form>
                     <div><a href="{% url "accounts:register" %}">Create new account!</a></div>
                     <div><a href="{% url "accounts:password_reset" %}">Forget Password ?</a></div>
                 </div>
-
             </div>
         </div>
-
 {% endblock %}

@@ -5,7 +5,6 @@
     <title>Register</title>
 </head>
 <body>
-
 	{% if messgaes %}
 		{% for message in messages %}
 			<span class="alert alert-{{ message.tags }}" style="color: {{ message.tags }}">
@@ -13,20 +12,13 @@
 			</span>
 		{% endfor %}
 	{% endif %}
-
-
     <form method="post" action="{% url "accounts:otp_input" %}">
         <h3>Register</h3>
-
         {% csrf_token %}
-
         <br>
         <input name="otp" placeholder="enter otp">
-
         <hr>
         <input value="Submit OTP" type="submit">
-
     </form>
-
 </body>
 </html>

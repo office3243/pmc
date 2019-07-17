@@ -1,14 +1,10 @@
 {% extends 'accounts/base.html' %}
 {% load crispy_forms_tags %}
-
 {% block title %}Login{% endblock %}
-
 {% block body %}
-
         <div class="tz-login-header">
             <span class="tz-login-header-name">PrintMyCopy</span>
         </div>
-
         <div id="main-content">
             <ul class="nav tz-login-ul" >
                 <li class="nav-item tz-login-li">
@@ -30,8 +26,6 @@
                     <div class="text-center"><a class="text-default" href="{% url "accounts:register" %}">Create new account!</a></div>
                     <div class="text-center"><a class="text-danger" href="{% url "accounts:password_reset" %}">Forget Password ?</a></div>
                 </div>
-
             </div>
         </div>
-
 {% endblock %}

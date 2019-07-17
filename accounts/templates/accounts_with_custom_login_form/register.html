@@ -1,14 +1,10 @@
 {% extends 'accounts/base.html' %}
 {% load crispy_forms_tags %}
-
 {% block title %}Register{% endblock %}
-
 {% block body %}
-
         <div class="tz-login-header">
             <span class="tz-login-header-name">PrintMyCopy</span>
         </div>
-
         <div id="main-content">
             <ul class="nav tz-login-ul" >
                 <li class="nav-item tz-login-li">
@@ -20,32 +16,20 @@
             <div class="tab-content container mt-3" id="tz-tab-content">
                 <div id="sign-up-section">
                     <form action="{% url "accounts:register" %}" method="POST">
-
                         {% csrf_token %}
-
                         {{ form|crispy }}
-
                         {% for error in form.phone.errors %}
                             <span class="alert alert-danger">{{ error }}</span>
                         {% endfor %}
-
-
                         {% for error in form.password.errors %}
                             <span class="alert alert-danger">{{ error }}</span>
                         {% endfor %}
-
-
                         {% for error in form.password2.errors %}
                             <span class="alert alert-danger">{{ error }}</span>
                         {% endfor %}
-
-
                         {% for error in form.email.errors %}
                             <span class="alert alert-danger">{{ error }}</span>
                         {% endfor %}
-
-
-
                         <div class="form-group">
                             <label class="tz-lbl-color" for="regmobileno">Mobile No</label>
                             <input name="phone" class="form-control tz-inp input-medium bfh-phone" data-format="+91dddddddddd" type="text" id="regmobileno" required>
@@ -64,15 +48,9 @@
                         </div>
                         <button class="btn btn-info btn-block my-4 tz-btn-submit" type="submit">Create Accont</button>
                     </form>
-
-
                     <div><a href="{% url "accounts:login" %}">Login</a></div>
                     <div><a href="{% url "accounts:password_reset" %}">Forget Password ?</a></div>
-
-
                 </div>
-
             </div>
         </div>
-
 {% endblock %}

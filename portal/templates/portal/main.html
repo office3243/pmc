@@ -4,25 +4,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>PrintMyCopy</title>
-         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-        <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <!-- Material Design Bootstrap -->
         <link href="css/mdb.min.css" rel="stylesheet">
-        <!-- Your custom styles  -->
         <link href="css/main.css" rel="stylesheet">
     </head>
     <body>
         <div >
             <div class="tz-topmenu">
-               <!-- Header Tag -->
                <div class="tz-header col-md-6">
                   <span class="tz-header-name"> 
                     PrintMyCopy
                   </span>
                </div>
-              <!-- NavBar -->
               <ul class="nav tz-ul col-md-6" role="tablist">
                 <li class="nav-items tz-li"><a class="nav-link waves-light active show tz-linkbtn tz-currentlink" id="home-tab" onclick="currentlink(this.id);" data-toggle="tab" href="#home-section" role="tab" ariaicontrols="home-section" aria-selected="true"><i class="fas fa-home"></i></a></li>
                 <li class="nav-items tz-li"><a class="nav-link waves-light tz-linkbtn" id="upload-tab" onclick="currentlink(this.id);" data-toggle="tab" href="#upload-section" role="tab" ariaicontrols="upload-section" aria-selected="false"><i class="fas fa-upload"></i></a></li>
@@ -30,15 +24,8 @@
                 <li class="nav-items tz-li"><a class="nav-link waves-light tz-linkbtn" id="account-tab" onclick="currentlink(this.id);" data-toggle="tab" href="#account-section" role="tab" ariaicontrols="account-section" aria-selected="false"><i class="fas fa-wallet"></i></a></li>
               </ul>
             </div>
-
-
-
             <div class="tab-content container" id="myClassicTab">
-
-                <!-- Home Section -->
                 <div id="home-section" class="tab-pane fade active show" role="tabpanel" aria-labelledby="home-tab">Home</div>
-                
-                <!-- Upload Section -->
                 <div id="upload-section" class="tab-pane fade" role="tabpanel" aria-labelledby="upload-tab">
                   <form action="" method="get">
                     <div class="row tz-upload-row">
@@ -52,7 +39,6 @@
                               <input required  onchange="fileChange(this);" style="display: none;" id="file"  type="file"  >
                               <button onclick="preview();" type="button" class="tz-preview-btn">Preview</button>
                           </label>
-                          
                       </div>
                     </div>
                     <div id="container" style="display: none;">
@@ -117,20 +103,7 @@
                     </div>
                     <div class="text-center" style="margin:25px;"><button class="btn tz-getotpbtn">Get OTP</button></div>
                   </form>
-
-
-
-
                 </div>
-
-
-
-
-                <!-- Transaction Section -->
-
-
-
-                <!-- Account Section -->
                 <div id="account-section" class="tab-pane fade" role="tabpanel" aria-labelledby="account-tab">
                   <div class="text-center" style="padding: 30px 0px;">
                     <div class="tz-balancelbl">TOTAL BALANCE</div>
@@ -148,23 +121,12 @@
                 </div>
             </div>
         </div>
-
-
-
-        <!-- SCRIPTS -->
-        <!-- JQuery -->
         <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-        <!-- Bootstrap tooltips -->
         <script type="text/javascript" src="js/popper.min.js"></script>
-        <!-- Bootstrap core JavaScript -->
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <!-- MDB core JavaScript -->
         <script type="text/javascript" src="js/mdb.min.js"></script>
-        <!-- Pdfjs JavaScript -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.2/pdf.min.js"></script>
-         <!-- Main JavaScript -->
         <script type="text/javascript" src="js/main.js"></script>
-        <!-- Preview JavaScript -->
         <script type="text/javascript" src="js/preview.js"></script>
     </body>
 </html>
